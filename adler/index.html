@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Index Test</title>
+<title>Adlerweg</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css_index.css"></link>
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css"/>
@@ -9,5 +9,21 @@
 </head>
 
 <body>
+<h1>Adlerweg</h1>
+
+<p>
+ <div id="adler_map" style="width:90%;height:600px"></div>
+    <script>
+		var adlerweg = L.map('adler_map', {
+            center : [-10.9, -62.76],
+            zoom : 1
+		});
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap contributors</a>'
+        }).addTo(adlerweg);
+	
+	
+	
+	</script>
 </body>
 </html>
