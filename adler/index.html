@@ -52,17 +52,17 @@
 			zoom : 10
         });
 		
-		var etappe01 = L.geoJson(etappe01json, {style: {color: "#fff400", weight: 6}}).addTo(adlerweg)
-        etappe01.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-1-st-johann-gaudeamushuette'><p>Adlerweg - Etappe 1</p></a>");
+		var etappe01 = L.geoJson(etappe01json, {style: {color: "#fff400", weight: 6}}).addTo(adlerweg);
+        etappe01.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-1-st-johann-gaudeamushuette' target='_blank'><p>Adlerweg - Etappe 1</p></a>")
 				
-		var etappe02 = L.geoJson(etappe02json, {style: {color: "#ff9a00", weight: 6}}).addTo(adlerweg)
-		etappe02.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-2-gaudeamushuette-hintersteiner-see'><p>Adlerweg - Etappe 2</p></a>")
+		var etappe02 = L.geoJson(etappe02json, {style: {color: "#ff9a00", weight: 6}}).addTo(adlerweg);
+		etappe02.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-2-gaudeamushuette-hintersteiner-see' target='_blank'><p>Adlerweg - Etappe 2</p></a>")
 		
-		var etappe03 = L.geoJson(etappe03json, {style: {color: "#ff0000", weight: 6}}).addTo(adlerweg)
-		etappe03.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-3-hintersteiner-see-kufstein'><p>Adlerweg - Etappe 3</p></a>")
+		var etappe03 = L.geoJson(etappe03json, {style: {color: "#ff0000", weight: 6}}).addTo(adlerweg);
+		etappe03.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-3-hintersteiner-see-kufstein' target='_blank'><p>Adlerweg - Etappe 3</p></a>")
 		
-		var etappe04 = L.geoJson(etappe04json, {style: {color: "#c90000", weight: 6}}).addTo(adlerweg)
-		etappe04.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-4-kufstein-alpengasthof-buchacker'><p>Adlerweg - Etappe 4</p></a>")
+		var etappe04 = L.geoJson(etappe04json, {style: {color: "#c90000", weight: 6}}).addTo(adlerweg);
+		etappe04.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-4-kufstein-alpengasthof-buchacker' target='_blank'><p>Adlerweg - Etappe 4</p></a>")
 		
 		var marker1 = L.marker([47.522778, 12.429722]).addTo(adlerweg);
 		marker1.bindPopup('<h2>Adlerweg</h2><p>Etappe 1:<br>Start: St. Johann in Tirol')
