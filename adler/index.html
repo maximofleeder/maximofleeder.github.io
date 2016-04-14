@@ -17,12 +17,37 @@
 <p>
  <div id="adler_map" style="width:800px;height:500px"></div>
  	<script>
-		var adlerweg = L.map('adler_map');
-		var osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-		    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap contributors</a>'
-        }).addTo(adlerweg);
+		var layers = { // http://www.basemap.at/wmts/1.0.0/WMTSCapabilities.xml
+			geolandbasemap : L.tileLayer("http://{s}.wien.gv.at/basemap/geolandbasemap/normal/google3857/{z}/{y}/{x}.png", {
+                subdomains : ['maps', 'maps1', 'maps2', 'maps3', 'maps4'],
+                attribution : 'Datenquelle: <a href="http://www.basemap.at/">basemap.at</a>'
+            }),
+            bmapoverlay : L.tileLayer("http://{s}.wien.gv.at/basemap/bmapoverlay/normal/google3857/{z}/{y}/{x}.png", {
+                subdomains : ['maps', 'maps1', 'maps2', 'maps3', 'maps4'],
+                attribution : 'Datenquelle: <a href="http://www.basemap.at/">basemap.at</a>'
+            }),
+            bmapgrau : L.tileLayer("http://{s}.wien.gv.at/basemap/bmapgrau/normal/google3857/{z}/{y}/{x}.png", {
+                subdomains : ['maps', 'maps1', 'maps2', 'maps3', 'maps4'],
+                attribution : 'Datenquelle: <a href="http://www.basemap.at/">basemap.at</a>'
+            }),
+            bmaphidpi : L.tileLayer("http://{s}.wien.gv.at/basemap/bmaphidpi/normal/google3857/{z}/{y}/{x}.jpeg", {
+                subdomains : ['maps', 'maps1', 'maps2', 'maps3', 'maps4'],
+                attribution : 'Datenquelle: <a href="http://www.basemap.at/">basemap.at</a>'
+            }),
+            bmaporthofoto30cm : L.tileLayer("http://{s}.wien.gv.at/basemap/bmaporthofoto30cm/normal/google3857/{z}/{y}/{x}.jpeg", {
+                subdomains : ['maps', 'maps1', 'maps2', 'maps3', 'maps4'],
+                attribution : 'Datenquelle: <a href="http://www.basemap.at/">basemap.at</a>'
+            }),
+			osmLayer : L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+				attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap contributors</a>'
+			})
+		};
 		
-		adlerweg.setView([47.483056, 12.066389], 10);
+		var adlerweg = L.map('adler_map', {
+            layers : [layers.osmLayer],
+            center : [47.483056, 12.066389],
+            zoom : 10
+        });
 		
 		var etappe01 = L.geoJson(etappe01json, {
 			style: {
@@ -52,11 +77,27 @@
 		}
 		});
 		
+		var marker1 = L.marker([47.483056, 12.066389]).addTo(adlerweg);
+		marker1.bindPopup('<h2>Adlerweg</h2><p>Etappe 1:<br>Start: St. Johann in Tirol')
+		
 		adlerweg.addLayer(etappe01);
 		adlerweg.addLayer(etappe02);
 		adlerweg.addLayer(etappe03);
 		adlerweg.addLayer(etappe04);
-		adlerweg.panTo(etappe03);
+
+		L.control.layers({
+            "Open Street Map" : layers.osmLayer,
+			"Geoland Basemap" : layers.geolandbasemap,
+            "Geoland Basemap Overlay" : layers.bmapoverlay,
+            "Geoland Basemap Grau": layers.bmapgrau,
+            "Geoland Basemap High DPI" : layers.bmaphidpi,
+            "Geoland Basemap Orthofoto" : layers.bmaporthofoto30cm
+        }).addTo(adlerweg)
+        
+		L.control.scale({
+            'metric' : true
+		}).addTo(adlerweg);		
 	</script>
+</p>
 	</body>
 </html>
