@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Adlerweg</title>
+<title>Der Tiroler Adlerweg</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="css_index.css"></link>
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css"/>
@@ -12,8 +12,9 @@
 <script src="gpx/gpx_04.js"></script>
 </head>
 <body>
-<h1>Tiroler Adlerweg</h1>
-<h2>Der Adler sieht mehr</h2>
+<h1>Der Tiroler Adlerweg</h1>
+<h2>Der Adler sieht mehr ...</h2>
+<h3>... als die Tiroler Tageszeitung</h3>
 <p>
  <div id="adler_map" style="width:800px;height:500px"></div>
  	<script>
@@ -77,7 +78,7 @@
 		}
 		});
 		
-		var marker1 = L.marker([47.483056, 12.066389]).addTo(adlerweg);
+		var marker1 = L.marker([47.522778, 12.429722]).addTo(adlerweg);
 		marker1.bindPopup('<h2>Adlerweg</h2><p>Etappe 1:<br>Start: St. Johann in Tirol')
 		
 		adlerweg.addLayer(etappe01);
@@ -99,5 +100,8 @@
 		}).addTo(adlerweg);		
 	</script>
 </p>
-	</body>
+<hr/>
+<p id="copyright">(C) <a href="http://www.geograffix.at">Mag. Lukas Kindl, BA</a> - 2016</p>
+</br>
+</body>
 </html>
