@@ -6,30 +6,57 @@
 <link rel="stylesheet" href="css_index.css"></link>
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css"/>
 <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+<script src="gpx/gpx_01.js"></script>
 <script src="gpx/gpx_02.js"></script>
+<script src="gpx/gpx_03.js"></script>
+<script src="gpx/gpx_04.js"></script>
 </head>
-
 <body>
-<h1>Adlerweg</h1>
-
+<h1>Tiroler Adlerweg</h1>
+<h2>Der Adler sieht mehr</h2>
 <p>
- <div id="adler_map" style="width:90%;height:600px"></div>
-    <script>
+ <div id="adler_map" style="width:800px;height:500px"></div>
+ 	<script>
 		var adlerweg = L.map('adler_map');
 		var osmLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap contributors</a>'
         }).addTo(adlerweg);
 		
-		adlerweg.setView([47, 11], 10);
-		var etappe02 = L.geoJson(etappe02json, {
+		adlerweg.setView([47.483056, 12.066389], 10);
+		
+		var etappe01 = L.geoJson(etappe01json, {
 			style: {
-			color: "#333333",
-			weight: 15
+			color: "#fff400", 
+			weight: 6
 		}
 		});
-			
+		
+		var etappe02 = L.geoJson(etappe02json, {
+			style: {
+			color: "#ff9a00",
+			weight: 6
+		}
+		});
+		
+		var etappe03 = L.geoJson(etappe03json, {
+			style: {
+			color: "#ff0000",
+			weight: 6
+		}
+		});
+		
+		var etappe04 = L.geoJson(etappe04json, {
+			style: {
+			color: "#c90000",
+			weight: 6
+		}
+		});
+		
+		adlerweg.addLayer(etappe01);
 		adlerweg.addLayer(etappe02);
-		adlerweg.fitBounds(etappe02);
+		adlerweg.addLayer(etappe03);
+		adlerweg.addLayer(etappe04);
+		adlerweg.panTo(etappe03);
 	</script>
-</body>
+	</body>
 </html>
