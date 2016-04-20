@@ -94,8 +94,48 @@
 		var script = document.createElement("script");
 		script.src = url;
 		document.getElementsByTagName('head')[0].appendChild(script);
-		window.zeigBilder = function(fotos) {
-			console.log("Panoramio fertig geladen: ", fotos);
+		window.zeigBilder = function(data) {
+		  for (var i=0; i<data.photos.length; i++)	{
+			// console.log("Photo Titel: ", i, data.photos[i].photo_title);
+			var x = L.marker(
+				[data.photos[i].latitude, data.photos[i].longitude],
+				{
+					icon: L.icon(
+					{
+						iconUrl: data.photos[i].photo_file_url
+					})
+				}
+			).bindPopup("<h2>"+data.photos[i].photo_title+"</h2>"
+					+"<a href=' "+data.photos[i].photo_url+"'>Link zum Bild</a>"
+			).addTo(adlerweg);
+			// console.log(data.photos[i].photo_file_url)
+		  }
+		}
+		
+		var url_wiki = "http://api.geonames.org/wikipediaBoundingBoxJSON?username=oeggl"
+			+'&west='+bounds.getWest()
+			+'&south='+bounds.getSouth()
+			+'&east='+bounds.getEast()
+			+'&north='+bounds.getNorth()
+			+'&lang=de'
+			+'&callback=zeigWiki';
+		var script2 = document.createElement("script");
+		script2.src = url_wiki;
+		document.getElementsByTagName('head')[0].appendChild(script2);
+		window.zeigWiki = function(wikidata) {
+		  // marker add, popup add, link add
+		  for (var i2=0; i2<wikidata.geonames.length; i2++) {
+			console.log("Wiki-Titel: "+wikidata.geonames[i2].title);
+			var wik_mark = L.marker([wikidata.geonames[i2].lat, wikidata.geonames[i2].lng]);
+			var icon = L.icon({
+				iconUrl: "wikipedia.png"
+			});
+			wik_mark.setIcon(icon);
+			wik_mark.bindPopup("<a href='http://"+wikidata.geonames[i2].wikipediaUrl
+				+"'>"+wikidata.geonames[i2].title+"</a>");
+			wik_mark.addTo(adlerweg);
+			console.log(wik_mark)
+			}
 		}
 		
 		L.control.scale({
