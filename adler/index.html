@@ -52,42 +52,42 @@
 			zoom : 10
         });
 		
-		var etappe01 = L.geoJson(etappe01json, {style: {color: "#fff400", weight: 6}}).addTo(adlerweg);
+		var etappe01 = L.geoJson(etappe01json, {style: {color: "#fff400", weight: 6}});
         etappe01.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-1-st-johann-gaudeamushuette' target='_blank'><p>Adlerweg - Etappe 1</p></a>")
 				
-		var etappe02 = L.geoJson(etappe02json, {style: {color: "#ff9a00", weight: 6}}).addTo(adlerweg);
+		var etappe02 = L.geoJson(etappe02json, {style: {color: "#ff9a00", weight: 6}});
 		etappe02.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-2-gaudeamushuette-hintersteiner-see' target='_blank'><p>Adlerweg - Etappe 2</p></a>")
 		
-		var etappe03 = L.geoJson(etappe03json, {style: {color: "#ff0000", weight: 6}}).addTo(adlerweg);
+		var etappe03 = L.geoJson(etappe03json, {style: {color: "#ff0000", weight: 6}});
 		etappe03.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-3-hintersteiner-see-kufstein' target='_blank'><p>Adlerweg - Etappe 3</p></a>")
 		
-		var etappe04 = L.geoJson(etappe04json, {style: {color: "#c90000", weight: 6}}).addTo(adlerweg);
+		var etappe04 = L.geoJson(etappe04json, {style: {color: "#c90000", weight: 6}});
 		etappe04.bindPopup("<a href='http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-4-kufstein-alpengasthof-buchacker' target='_blank'><p>Adlerweg - Etappe 4</p></a>")
 		
 		var marker1 = L.marker([47.522778, 12.429722]).addTo(adlerweg);
 		marker1.bindPopup('<h2>Adlerweg</h2><p>Etappe 1:<br>Start: St. Johann in Tirol')
 		
-		adlerweg.addLayer(etappe01);
-		adlerweg.addLayer(etappe02);
-		adlerweg.addLayer(etappe03);
-		adlerweg.addLayer(etappe04);
-
+		var adlergroup = new L.featureGroup([etappe01, etappe02, etappe03, etappe04]);
+		adlerweg.addLayer(adlergroup);
+		adlerweg.fitBounds(adlergroup.getBounds());
+		
 		L.control.layers({
             "Open Street Map" : layers.osmLayer,
 			"Geoland Basemap" : layers.geolandbasemap,
             "Geoland Basemap Overlay" : layers.bmapoverlay,
-            "Geoland Basemap Grau": layers.bmapgrau,
+            "Geoland Basemap Grau" : layers.bmapgrau,
             "Geoland Basemap High DPI" : layers.bmaphidpi,
-            "Geoland Basemap Orthofoto" : layers.bmaporthofoto30cm
-        }).addTo(adlerweg)
+            "Geoland Basemap Orthofoto" : layers.bmaporthofoto30cm			
+        },{
+			"Etappen": adlergroup,
+			"Marker St. Johann": marker1
+		}
+		).addTo(adlerweg);
         
 		L.control.scale({
             'metric' : true
 		}).addTo(adlerweg);	
-		
-		var adlergroup = new L.featureGroup([etappe01, etappe02, etappe03, etappe04]);
-		adlerweg.fitBounds(adlergroup.getBounds());
-    };
+	};
 	</script>
 </p>
 <hr/>
