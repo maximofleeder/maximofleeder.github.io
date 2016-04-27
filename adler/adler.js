@@ -1,3 +1,8 @@
+/*
+	Adlerweg Script
+	Zeigt vier Etappen des Adlerwegs auf einer Leaflet-Karte mit Photos von Panoramio und Wikipedia-Einträgen
+*/
+
 window.onload = function() {
     var layers = { // http://www.basemap.at/wmts/1.0.0/WMTSCapabilities.xml
         geolandbasemap: L.tileLayer("http://{s}.wien.gv.at/basemap/geolandbasemap/normal/google3857/{z}/{y}/{x}.png", {
