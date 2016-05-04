@@ -138,7 +138,9 @@ window.onload = function() {
             console.log(wik_mark)
         }
     }
-
+	
+	var hash = new L.Hash(adlerweg);	
+	
     L.control.scale({
         'metric': true
     }).addTo(adlerweg);
