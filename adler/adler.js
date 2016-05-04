@@ -126,7 +126,7 @@ window.onload = function() {
     window.zeigWiki = function(wikidata) {
         // marker add, popup add, link add
         for (var i2 = 0; i2 < wikidata.geonames.length; i2++) {
-            console.log("Wiki-Titel: " + wikidata.geonames[i2].title);
+            // console.log("Wiki-Titel: " + wikidata.geonames[i2].title);
             var wik_mark = L.marker([wikidata.geonames[i2].lat, wikidata.geonames[i2].lng]);
             var icon = L.icon({
                 iconUrl: "wikipedia.png"
@@ -135,13 +135,21 @@ window.onload = function() {
             wik_mark.bindPopup("<a href='http://" + wikidata.geonames[i2].wikipediaUrl +
                 "'>" + wikidata.geonames[i2].title + "</a>");
             wik_mark.addTo(adlerweg);
-            console.log(wik_mark)
+            // console.log(wik_mark)
         }
     }
 	
 	var hash = new L.Hash(adlerweg);	
 	
-    L.control.scale({
+	var el = L.control.elevation({
+		collapsed : true,
+		theme: "steelblue-theme"		
+	}).addTo(adlerweg);
+	var adlerEtappe01 = L.geoJson(etappe01json, {
+		onEachFeature: el.addData.bind(el)
+	}).addTo(adlerweg);
+	
+	L.control.scale({
         'metric': true
     }).addTo(adlerweg);
 }
