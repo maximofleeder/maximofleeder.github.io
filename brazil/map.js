@@ -1,11 +1,12 @@
-var map = L.map('routingmap');
+var brazmap = L.map('map_brazil');
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+}).addTo(brazmap);
+
 var routing = L.Routing.control({
 	waypoints: [
-	L.latLng(47.26, 11.38),
-	L.latLng(47, 12.54)
+	L.latLng(-23.5, -46.616667),
+	L.latLng(-23.140556, -44.247222),
+	L.latLng(-22.908333, -43.196389)
 	]
-}).addTo(map);
-map.setView([47.26, 11.38], 9);
+}).addTo(brazmap);
