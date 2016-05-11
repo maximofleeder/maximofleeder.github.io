@@ -28,6 +28,32 @@ window.onload = function() {
         'metric': true
     }).addTo(brazmap);
 	
+	//Variable für ersten geklickten Punkt
+	var first_point;
+	
+	//Klicks auf Karte verarbeiten
+	brazmap.on("click", function (event) {
+		if (first_point) {
+			//zeichnen der Route
+			console.log("2. Punkt", event);
+			
+			routing_control.setWaypoints([
+				first_point,
+				event.latlng
+			])
+			routing_control.show();
+			
+			//ersten Punkt wieder löschen
+			first_point = null;
+		} else {
+			
+			routing_control.hide();
+			//merken des ersten Punkts
+			first_point = event.latlng;
+			console.log("1. Punkt", event);
+		}
+	});
+	
 	var bounds = markergroup.getBounds();
     var url = "http://www.panoramio.com/map/get_panoramas.php?set=public&from=0&to=20" +
         '&minx=' + bounds.getWest() +
