@@ -64,7 +64,7 @@ window.onload = function() {
                     iconUrl: 'icons/nphtt_' + feature.properties.POI_TYP + '.png',
                     iconSize: [36, 36],
                     iconAnchor: [18, 18],
-                    popupAnchor: [0, -8]
+                    popupAnchor: [0, -18]
                 }),
             });
         }
