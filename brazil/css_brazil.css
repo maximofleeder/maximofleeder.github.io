@@ -42,13 +42,13 @@ p {
 #box {
 	background-color: #fffa92; /* light yellow */
 	text-align: justify;
-	font-style: italic;
-	font-weight: bold;
+	font-style: normal;
+	font-weight: normal;
 	font-size: 12px;
 	font-family: Georgia, serif;
 	color: black;
 	line-height: 2;
-	border: 6px solid darkblue;
+	border: 6px solid #222e6b;
 	border-left: 6px dashed yellow;
 	border-top: 3px solid yellow;
 	border-right: 6px solid yellow;
