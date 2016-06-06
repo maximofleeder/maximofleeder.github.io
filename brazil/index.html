@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Exkursion nach Brasilien</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="css_brazil.css"></link>
-<link rel="stylesheet" href="leaflet/leaflet.css"></link>
-<link rel="stylesheet" href="rm/leaflet-routing-machine.css"></link>
-<script src="brazil.js"></script>
-<script src="leaflet/leaflet.js"></script>
-<script src="rm/leaflet-routing-machine.min.js"></script>
-<script src="leaflet-hash.js"></script>
+    <title>Exkursion nach Brasilien</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css_brazil.css"></link>
+    <link rel="stylesheet" href="leaflet/leaflet.css"></link>
+    <link rel="stylesheet" href="rm/leaflet-routing-machine.css"></link>
+    <script src="brazil.js"></script>
+    <script src="leaflet/leaflet.js"></script>
+    <script src="rm/leaflet-routing-machine.min.js"></script>
+    <script src="leaflet-hash.js"></script>
 </head>
 
 <body>
-<h1>Pionierregionen in Brasilien</h1>
-<h2>Agroforstwirtschaftssysteme und alternative Wertschöpfungsketten als Entwicklungsperspektive für Kleinbauern in Amazonien</h2>
-<hr/>
-<h3>Leitung: Prof. Martin Coy</h3>
+    <h2>Pionierregionen in Brasilien</h2>
+    <h3>Agroforstwirtschaftssysteme und alternative Wertschöpfungsketten als Entwicklungsperspektive für Kleinbauern in Amazonien</h3>
+    <hr/>
+    <h4>Allgemeine Länderinformationen</h4>
+    <p id="box">Brasilien ist der flächen- und bevölkerungsmäßig fünftgrößte Staat der Erde. Es ist das größte und mit über 200 Millionen Einwohnern auch das bevölkerungsreichste Land Südamerikas, von dessen Fläche es 47,3 Prozent einnimmt. Brasilien hat mit jedem südamerikanischen Staat außer Chile und Ecuador eine gemeinsame Grenze.
+        <img src="flag_brazil.jpg" id="flag" style="float:right" alt="Flagge von Brasilien">
+        </br>Die ersten Spuren menschlicher Besiedlung durch Paläo-Indianer reichen mehrere tausend Jahre zurück. Nach der Entdeckung Amerikas und der Aufteilung des südamerikanischen Kontinents durch den Vertrag von Tordesillas wurde Brasilien eine portugiesische Kolonie. Diese mehr als drei Jahrhunderte andauernde Kolonialzeit, in der Einwanderer verschiedenster Herkunft (freiwillig oder gezwungenermaßen) nach Brasilien kamen, trug erheblich zur ethnischen Vielfalt des heutigen Staates bei. Nach der im Jahre 1822 erlangten Unabhängigkeit, auf die eine Zeit der konstitutionellen Monarchie folgte, wurde das Land 1889 als Vereinigte Staaten von Brasilien zu einer Republik. Nach der Zeit der Militärdiktatur von 1964 bis 1985 kehrte das Land zur Demokratie mit einem präsidentiellen Regierungssystem zurück.
+        </br>Der Name Brasilien geht auf den portugiesischen Namen pau-brasil des Brasilholz-Baumes (Caesalpinia echinata), der ein wichtiges Ausfuhrprodukt zur Zeit der frühen Kolonisation aus den Wäldern der Atlantikküste war, zurück. Brasa bedeutet im Portugiesischen „Glut“ und „glühende Kohlen“; das Adjektiv brasil („glutartig“) bezieht sich auf die Farbe des Holzes, das, wenn geschnitten, rot leuchtet (Brasilin) und in Europa zum Färben von Stoffen benutzt wurde.
+        </br>
+        </br>(Quelle: www.wikipedia.org)
+    </p>
 
-<p id="box">Brasilien ist der flächen- und bevölkerungsmäßig fünftgrößte Staat der Erde. Es ist das größte und mit über 200 Millionen Einwohnern auch das bevölkerungsreichste Land Südamerikas, von dessen Fläche es 47,3 Prozent einnimmt. Brasilien hat mit jedem südamerikanischen Staat außer Chile und Ecuador eine gemeinsame Grenze.
-	<img src="flag_brazil.jpg" id="flag" style="float:right" alt="Flagge von Brasilien">
-</br>Die ersten Spuren menschlicher Besiedlung durch Paläo-Indianer reichen mehrere tausend Jahre zurück. Nach der Entdeckung Amerikas und der Aufteilung des südamerikanischen Kontinents durch den Vertrag von Tordesillas wurde Brasilien eine portugiesische Kolonie. Diese mehr als drei Jahrhunderte andauernde Kolonialzeit, in der Einwanderer verschiedenster Herkunft (freiwillig oder gezwungenermaßen) nach Brasilien kamen, trug erheblich zur ethnischen Vielfalt des heutigen Staates bei. Nach der im Jahre 1822 erlangten Unabhängigkeit, auf die eine Zeit der konstitutionellen Monarchie folgte, wurde das Land 1889 als Vereinigte Staaten von Brasilien zu einer Republik. Nach der Zeit der Militärdiktatur von 1964 bis 1985 kehrte das Land zur Demokratie mit einem präsidentiellen Regierungssystem zurück.
-</br>Der Name Brasilien geht auf den portugiesischen Namen pau-brasil des Brasilholz-Baumes (Caesalpinia echinata), der ein wichtiges Ausfuhrprodukt zur Zeit der frühen Kolonisation aus den Wäldern der Atlantikküste war, zurück. Brasa bedeutet im Portugiesischen „Glut“ und „glühende Kohlen“; das Adjektiv brasil („glutartig“) bezieht sich auf die Farbe des Holzes, das, wenn geschnitten, rot leuchtet (Brasilin) und in Europa zum Färben von Stoffen benutzt wurde.
-</br></br>(Quelle: www.wikipedia.org)
-</p>
-
-<hr/>
-<h2>Reisedaten und Reiseroute</h2>
-<p><u>Reisezeitraum:</u>
-<ul>
-	<li>Beginn: 4.9.2016 (Treffpunkt in Brasília)</li>
-	<li>Ende: Samstag 24.9.2016 (Brasília)</li>
-</ul>
-</p>
-<p><u>Reiseroute:</u>
-<ol>
-	<li>Brasília: Auftaktworkshop und Expertengespräche (4.9. – 7.9.)</li>
-	<li>„Klassische“ Pionierregionen: Der Raum Ji-Paraná in Rondônia (8.9. – 11.9.)</li>
-	<li>Porto Velho: Expertengespräche (11.9. – 13.9.)</li>
-	<li>RECA-Projekt / Nova Califórnia: Befragungen, Interviews, Kartierungen etc. (14.9. – 20.9.)</li>
-	<li>Rio Branco: Expertengespräche (20.9. – 21.9.)</li>
-	<li>Brasília: Abschlussworkshop (22.9. – 24.9.)</li>
-</ol>
-<p>
-	<div id="map_brazil" style="width:95%;height:600px"></div>   
-</p>
-<h2>Filmstudio</h2>
-<p>Rondônia in den 1970er-Jahren:</p>
-<p align="center">
-	<iframe id="box" width="420" height="315" src="https://www.youtube.com/embed/hR1fe5pVaVM" frameborder="0"></iframe>
-</p>
-<hr/>
-<p id="copyright">(C) <a href="http://www.geograffix.at">Mag. Lukas Kindl, BA</a> - 2016</p>
-</br>
-</br>
+    <hr/>
+    <h4>Reisedaten und Reiseroute</h4>
+    <p><u>Reisezeitraum:</u>
+        <ul>
+            <li>Beginn: 4.9.2016 (Treffpunkt in Brasília)</li>
+            <li>Ende: Samstag 24.9.2016 (Brasília)</li>
+        </ul>
+    </p>
+    <p><u>Reiseroute:</u>
+        <ol>
+            <li>Brasília: Auftaktworkshop und Expertengespräche (4.9. – 7.9.)</li>
+            <li>„Klassische“ Pionierregionen: Der Raum Ji-Paraná in Rondônia (8.9. – 11.9.)</li>
+            <li>Porto Velho: Expertengespräche (11.9. – 13.9.)</li>
+            <li>RECA-Projekt / Nova Califórnia: Befragungen, Interviews, Kartierungen etc. (14.9. – 20.9.)</li>
+            <li>Rio Branco: Expertengespräche (20.9. – 21.9.)</li>
+            <li>Brasília: Abschlussworkshop (22.9. – 24.9.)</li>
+        </ol>
+        <p>
+            <div id="map_brazil" style="width:95%;height:600px"></div>
+        </p>
+        <h4>Filmstudio</h4>
+        <p>Brasília - Utopie der Moderne:</p>
+        <p align="center">
+            <iframe id="box" width="420" height="315" src="https://www.youtube.com/watch?v=v-9Aa51tTNI" frameborder="0"></iframe>
+        </p>
+        <hr/>
+        <p id="copyright">(C) <a href="http://www.geograffix.at">Mag. Lukas Kindl, BA</a> - 2016</p>
+        </br>
+        </br>
 </body>
+
 </html>
