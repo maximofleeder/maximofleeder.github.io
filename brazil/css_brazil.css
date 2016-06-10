@@ -52,9 +52,9 @@ p {
 	border-left: 6px dashed yellow;
 	border-top: 3px solid yellow;
 	border-right: 6px solid yellow;
-	padding: 30px 20px 20px 20px;
-	margin: 50px;
-	margin-left: 100px;
+	padding: 20px 20px 20px 20px;
+	margin: 30px;
+	margin-left: 80px;
 	border-radius: 35px 35px 0px 0px;
 	box-shadow: 10px 10px 10px 0px rgba(50, 50, 50, 0.6);
 }
@@ -87,8 +87,8 @@ ol {
 	color: black;
 }
 #flag {
-	width: 40%;
-	height: 40%;
+	width: 30%;
+	height: 30%;
 	border-radius: 10px;
 	margin-left: 20px;
 	margin-top: 10px;
