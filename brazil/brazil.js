@@ -77,32 +77,6 @@ window.onload = function() {
         'metric': true
     }).addTo(brazmap);
 
-    //Variable für ersten geklickten Punkt
-    var first_point;
-
-    //Klicks auf Karte verarbeiten
-    brazmap.on("click", function(event) {
-        if (first_point) {
-            //zeichnen der Route
-            console.log("2. Punkt", event);
-
-            routing_control.setWaypoints([
-                first_point,
-                event.latlng
-            ])
-            routing_control.show();
-
-            //ersten Punkt wieder löschen
-            first_point = null;
-        } else {
-
-            routing_control.hide();
-            //merken des ersten Punkts
-            first_point = event.latlng;
-            console.log("1. Punkt", event);
-        }
-    });
-
     var bounds = markergroup.getBounds();
     var url = "http://www.panoramio.com/map/get_panoramas.php?set=public&from=0&to=30" +
         '&minx=' + bounds.getWest() +
@@ -140,16 +114,14 @@ window.onload = function() {
     window.zeigWiki = function(wikidata) {
         // marker add, popup add, link add
         for (var i2 = 0; i2 < wikidata.geonames.length; i2++) {
-            // console.log("Wiki-Titel: " + wikidata.geonames[i2].title);
             var wik_mark = L.marker([wikidata.geonames[i2].lat, wikidata.geonames[i2].lng]);
             var icon = L.icon({
                 iconUrl: "wikipedia.png"
             });
             wik_mark.setIcon(icon);
-            wik_mark.bindPopup("<a href='http://" + wikidata.geonames[i2].wikipediaUrl +
+            wik_mark.bindPopup("<a target='blank' href='http://" + wikidata.geonames[i2].wikipediaUrl +
                 "'>" + wikidata.geonames[i2].title + "</a>");
             wik_mark.addTo(brazmap);
-            // console.log(wik_mark)
         }
     }
 
