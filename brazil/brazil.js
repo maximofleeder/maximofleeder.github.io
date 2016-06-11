@@ -74,7 +74,7 @@ window.onload = function() {
     brazmap.fitBounds(markergroup.getBounds());
 
     L.control.scale({
-        'metric': true
+        'metric': false
     }).addTo(brazmap);
 
     //Variable für ersten geklickten Punkt
@@ -104,7 +104,7 @@ window.onload = function() {
     });
 
     var bounds = markergroup.getBounds();
-    var url = "http://www.panoramio.com/map/get_panoramas.php?set=public&from=0&to=20" +
+    var url = "http://www.panoramio.com/map/get_panoramas.php?set=public&from=0&to=30" +
         '&minx=' + bounds.getWest() +
         '&miny=' + bounds.getSouth() +
         '&maxx=' + bounds.getEast() +
@@ -115,17 +115,15 @@ window.onload = function() {
     document.getElementsByTagName('head')[0].appendChild(script);
     window.zeigBilder = function(data) {
         for (var i = 0; i < data.photos.length; i++) {
-            // console.log("Photo Titel: ", i, data.photos[i].photo_title);
             var x = L.marker(
                 [data.photos[i].latitude, data.photos[i].longitude], {
                     icon: L.icon({
                         iconUrl: data.photos[i].photo_file_url
                     })
                 }
-            ).bindPopup("<h2>" + data.photos[i].photo_title + "</h2>" +
-                "<a href=' " + data.photos[i].photo_url + "'>Link zum Bild</a>"
+            ).bindPopup("<h4>" + data.photos[i].photo_title + "</h4>" +
+                "<a target='blank' href=' " + data.photos[i].photo_url + "'>Hier klicken, wenn das Bild vergrößert in einem neuen Fenster geöffnet werden soll</a>"
             ).addTo(brazmap);
-            // console.log(data.photos[i].photo_file_url)
         }
     }
 
