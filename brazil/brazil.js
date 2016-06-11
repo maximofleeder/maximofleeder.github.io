@@ -74,7 +74,7 @@ window.onload = function() {
     brazmap.fitBounds(markergroup.getBounds());
 
     L.control.scale({
-        'metric': false
+        'metric': true
     }).addTo(brazmap);
 
     //Variable für ersten geklickten Punkt
