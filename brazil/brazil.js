@@ -45,7 +45,7 @@ window.onload = function() {
             routing_control.hide()
                 // Tipp anzeigen und Marker merken
             tipp_marker = L.marker(event.latlng).addTo(brazmap);
-            tipp_marker.bindPopup('Ziel klicken ...').openPopup();
+            tipp_marker.bindPopup('Für Routenberechnung bitte Zieldestination anklicken ...').openPopup();
         }
     });
 
